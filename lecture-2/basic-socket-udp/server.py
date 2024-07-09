@@ -8,5 +8,9 @@ while True:
     data, addr = socket.recvfrom(1024)
     print(f'Connection from {addr}')
     print(data.decode())
-    
-    socket.sendto(data, addr)
+
+    if data.decode() == 'exit':
+        socket.sendto('Goodbye'.encode(), addr)
+        break
+
+    socket.sendto('Hello, {}'.format(addr[0]).encode(), addr)

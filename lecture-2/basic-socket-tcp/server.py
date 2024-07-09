@@ -9,4 +9,10 @@ while True:
     connection, address = socket.accept()
     print(f'Connection from {address}')
     connection.send('Hello, {}'.format(address[0]).encode())
-    connection.close()
+
+    while True:
+        data = connection.recv(1024)
+        print(data.decode())
+        if data.decode() == 'exit':
+            connection.close()
+            break
