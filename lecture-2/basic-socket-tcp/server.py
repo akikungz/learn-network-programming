@@ -13,6 +13,9 @@ while True:
     while True:
         data = connection.recv(1024)
         print(data.decode())
+
+        connection.send(f"Reply: {data.decode()}".encode())
+
         if data.decode() == 'exit':
             connection.close()
             break
