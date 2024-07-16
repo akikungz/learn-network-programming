@@ -2,7 +2,7 @@ import telnetlib
 
 HOST = "192.168.122.3"
 user = "mild-honey"
-# password = "Honey155@Mild-R"
+password = "Honey155@Mild-R"
 
 tn = telnetlib.Telnet(HOST)
 
